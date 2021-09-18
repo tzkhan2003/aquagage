@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Water Management System</title>
+    <meta name="description" content="Dashboard | Nura Admin">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Your website">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}">
+
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome CSS -->
+    <link href="{{ url_for('static', filename='assets/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='assets/css/stylee.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- BEGIN CSS for this page -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/plugins/chart.js/Chart.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/plugins/datatables/datatables.min.css') }}" />
+    <!-- END CSS for this page -->
+</head>
+
+<body class="adminbody">
+
+    <div id="main">
+
+        <!-- top bar navigation -->
+        <div class="headerbar">
+
+            <!-- LOGO -->
+            <div class="headerbar-left">
+                <a href="index.html" class="logo">
+                    <img alt="Logo" src="{{ url_for('static', filename='assets/images/logo.png') }}" />
+                    <span>Water Management System</span>
+                </a>
+            </div>
+
+            <nav class="navbar-custom">
+
+                <ul class="list-inline float-right mb-0">
+
+
+                    
+
+                </ul>
+
+                <ul class="list-inline menu-left mb-0">
+                    <li class="float-left">
+                        <button class="button-menu-mobile open-left">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+        <!-- End Navigation -->
+
+        <!-- Left Sidebar -->
+        <div class="left main-sidebar">
+
+            <div class="sidebar-inner leftscroll">
+
+                <div id="sidebar-menu">
+
+                    <ul>
+                        <li class="submenu">
+                            <a class="active" href="index.html">
+                                <i class="fas fa-bars"></i>
+                                <span> Dashboard </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="fas fa-user"></i>
+                                <span> Users</span>
+                            </a>
+                        </li>
+
+                        
+
+                       
+
+
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="fas fa-laptop"></i>
+                                <span> Settings </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#">UI Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#">Input Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#">Blynk Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#">Profile Settings</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#">Network Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#">Mechine Learning Console</a>
+                                </li>
+                                <li>
+                                    <a href="#">Others</a>
+                                </li>
+                                <li>
+                                    <a href="#">FAQ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="content-page">
+
+            <!-- Start content -->
+            <div class="content">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="breadcrumb-holder">
+                                <h1 class="main-title float-left">Dashboard</h1>
+                                <ol class="breadcrumb float-right">
+                                    <li class="breadcrumb-item">Home</li>
+                                    <li class="breadcrumb-item active">Dashboard</li>
+                                </ol>
+                                <div class="clearfix"></div>
+                            </div>
+
+                           
+
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                            <div class="card-box noradius noborder bg-danger">
+                                <i class="fas fa-tint float-right text-white"></i>
+                                <h6 style="font-size: 11px" class="text-white text-uppercase m-b-20">total consumption</h6>
+                                <h1 class="m-b-20 text-white counter">{{ con }}</h1>
+                                <span class="text-white">Litre(s)</span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                            <div class="card-box noradius noborder bg-purple">
+                                <i class="fas fa-water float-right text-white"></i>
+                                <h6 style="font-size: 11px" class="text-white text-uppercase m-b-20">average usage</h6>
+                                <h1 class="m-b-20 text-white counter">{{ con|float / 4 }}</h1>
+                                <span class="text-white">Litre(s)</span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                            <div class="card-box noradius noborder bg-warning">
+                                <i class="fas fa-tint-slash float-right text-white"></i>
+                                <h6 style="font-size: 11px" class="text-white text-uppercase m-b-20">greywater reserved</h6>
+                                <h1 class="m-b-20 text-white counter">00</h1>
+                                <span class="text-white">Litre(s)</span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                            <div class="card-box noradius noborder bg-info">
+                                <i class="fas fa-hand-holding-usd float-right text-white"></i>
+                                <h6 style="font-size: 11px" class="text-white text-uppercase m-b-20">Total Savings</h6>
+                                <h1 class="m-b-20 text-white counter">00.0</h1>
+                                <span class="text-white">BDT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-chart-bar"></i> Water Consumption History</h3>
+                                    This chart illustrates your water consumption history.
+                                </div>
+
+                                <div class="card-body">
+                                    <canvas id="comboBarLineChart"></canvas>
+                                </div>
+                                <div class="card-footer small text-muted">Updated today at {{ now }} AM</div>
+                            </div>
+                            <!-- end card-->
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-chart-bar"></i>Predictions for Next Week</h3>
+                                </div>
+
+                                <div class="card-body">
+                                    <canvas id="barChart"></canvas>
+                                </div>
+                                <div class="card-footer small text-muted">Updated today at {{ now }} AM</div>
+                            </div>
+                            <!-- end card-->
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+
+
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-history"></i>Live Water Usages</h3>
+                                </div>
+
+                                <div class="card-body">
+                                    <p class="font-600 mb-1">Profile-1 <span class="text-danger pull-right"><b>{{ useruse[0] }}</b></span></p>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-xs bg-danger" role="progressbar" style="width: {{ per[0] }}%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                    <div class="mb-3"></div>
+
+                                    <p class="font-600 mb-1">Profile-2 <span class="text-danger pull-right"><b>{{ useruse[1] }}</b></span></p>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-xs bg-success" role="progressbar" style="width: {{ per[1] }}%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3"></div>
+
+                                    <p class="font-600 mb-1">Profile-3<span class="text-danger pull-right"><b>{{ useruse[2] }}</b></span></p>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-xs bg-danger" role="progressbar" style="width: {{ per[2] }}%" aria-valuenow="656" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3"></div>
+
+                                    <p class="font-600 mb-1">Profile-4<span class="text-danger pull-right"><b>{{ useruse[3] }}</b></span></p>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-xs bg-success" role="progressbar" style="width: {{ per[3] }}%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3"></div>
+                                </div>
+                                <div class="card-footer small text-muted">Updated today at {{ now }} AM</div>
+                                <h3 style="text-align: center;">Leader Board</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">SL</th>
+      <th scope="col">Profile</th>
+      <th scope="col">Usages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ ledpro[0] }}</td>
+      <td>{{ leddata[0] }}</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>{{ ledpro[1] }}</td>
+      <td>{{ leddata[1] }}</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>{{ ledpro[2] }}</td>
+      <td>{{ leddata[2] }}</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>{{ ledpro[3] }}</td>
+      <td>{{ leddata[3] }}</td>
+    </tr>
+  </tbody>
+</table>
+
+                            </div>
+                            <!-- end card-->
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-envelope"></i> Suggestions</h3>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="widget-messages nicescroll" style="height: 550px;">
+                                        
+                                        
+                                        <a href="#">
+                                            <div class="message-item">
+                                                <p class="message-item-user">Profile-1</p>
+                                                <p class="message-item-msg"> .</p>
+                                                <p class="message-item-date"></p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="message-item">
+                                                <p class="message-item-user">Profile-2</p>
+                                                <p class="message-item-msg">.</p>
+                                                <p class="message-item-date"></p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="message-item">
+                                                <p class="message-item-user">Profile-3</p>
+                                                <p class="message-item-msg">.</p>
+                                                <p class="message-item-date"></p>
+                                            </div>
+                                        </a>
+                                         <a href="#">
+                                            <div class="message-item">
+                                                <p class="message-item-user">Profile-4</p>
+                                                <p class="message-item-msg">.</p>
+                                                <p class="message-item-date"></p>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <div class="card-footer small text-muted">Updated today at {{ now }} AM</div>
+                            </div>
+                            <!-- end card-->
+                        </div>
+
+                        <div class="col-12">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-user-friends"></i>Raw Input Data</h3>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="table-responsive">
+                                        <table id="dataTable" class="table table-bordered table-hover display" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Profile</th>
+                                                    <th>Data</th>
+                                                    <th>Time</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                    <!-- end table-responsive-->
+
+                                </div>
+                                <!-- end card-body-->
+                            </div>
+                            <!-- end card-->
+                        </div>
+
+                    </div>
+                    <!-- end row-->
+
+                </div>
+                <!-- END container-fluid -->
+
+            </div>
+            <!-- END content -->
+
+        </div>
+        <!-- END content-page -->
+
+        <footer class="footer">
+            <span class="text-right">                
+                Copyright <a target="_blank" href="#">Tanjim Zaman Khan</a>
+            </span>
+            <span class="float-right">
+                <!-- Copyright footer link MUST remain intact if you download free version. -->
+                <!-- You can delete the links only if you purchased the pro or extended version. -->
+                <!-- Purchase the pro or extended version with PHP version of this template: https://bootstrap24.com/template/nura-admin-4-free-bootstrap-admin-template -->
+                Powered by <a target="_blank" href="https://bootstrap24.com" title="Download free Bootstrap templates"><b>Water Management System</b></a>
+            </span>
+        </footer>
+
+        <script src="{{ url_for('static', filename='assets/js/modernizr.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/moment.min.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='assets/js/detect.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/fastclick.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/jquery.blockUI.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/jquery.nicescroll.js') }}"></script>
+
+        <!-- App js -->
+        <script src="{{ url_for('static', filename='assets/js/admin.js') }}"></script>
+
+    </div>
+    <!-- END main -->
+
+    <!-- BEGIN Java Script for this page -->
+    <script src="{{ url_for('static', filename='assets/plugins/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/datatables.min.js') }}"></script>
+
+    <!-- Counter-Up-->
+    <script src="{{ url_for('static', filename='assets/plugins/waypoints/lib/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/counterup/jquery.counterup.min.js') }}"></script>
+
+    <!-- dataTabled data -->
+    
+    <script type="text/javascript">
+       var dataSet = [
+
+    {% for record in rec %}
+
+    [ "{{ record.id }}", "{{ record.prof }}", "{{ record.data }}", "{{ record.date_posted.strftime('%Y-%m-%d, %H:%M:%S') }}"],
+    
+    {% endfor %}
+]; 
+
+
+
+    </script>
+
+    <!-- Charts data -->
+   
+    <script type="text/javascript">
+        var ctx_combo_bar = document.getElementById("comboBarLineChart").getContext('2d');
+var comboBarLineChart = new Chart(ctx_combo_bar, {
+        type: 'bar',
+        data: {
+            labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
+            datasets: [{
+                    type: 'bar',
+                    label: 'Profile-1',
+                    backgroundColor: '#6060C0',
+                    data: [{{ his[0][0] }},{{ his[1][0] }},{{ his[2][0] }},{{ his[3][0] }},{{ his[4][0] }},{{ his[5][0] }},{{ his[6][0] }}],
+                    borderColor: 'white',
+                    borderWidth: 0
+                }, {
+                    type: 'bar',
+                    label: 'Profile-2',
+                    backgroundColor: '#2E856E',
+                    data: [{{ his[0][1] }},{{ his[1][1] }},{{ his[2][1] }},{{ his[3][1] }},{{ his[4][1] }},{{ his[5][1] }},{{ his[6][1] }}],
+                },{
+                    type: 'bar',
+                    label: 'Profile-3',
+                    backgroundColor: '#63C5DA',
+                    data: [{{ his[0][2] }},{{ his[1][2] }},{{ his[2][2] }},{{ his[3][2] }},{{ his[4][2] }},{{ his[5][2] }},{{ his[6][2] }}],
+                    borderColor: 'white',
+                    borderWidth: 0
+                },{
+                    type: 'bar',
+                    label: 'Profile-4',
+                    backgroundColor: '#FF6B8A',
+                    data: [{{ his[0][2] }},{{ his[1][2] }},{{ his[2][2] }},{{ his[3][2] }},{{ his[4][2] }},{{ his[5][2] }},{{ his[6][2] }}],
+                    borderColor: 'white',
+                    borderWidth: 0
+                }], 
+                borderWidth: 1
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+}); 
+
+
+// barChart
+var ctx_bar_chart = document.getElementById("barChart").getContext('2d');
+var barChart = new Chart(ctx_bar_chart, {
+        type: 'bar',
+        data: {
+            labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
+            datasets: [{
+                label: 'Litre(s)',
+                data: [0,0,0,0,0,0,0],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                                
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255,99,132,1)',
+                    
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+});
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <script>
+        $(document).on('ready', function() {
+            // data-tables
+            $('#dataTable').DataTable({
+                data: dataSet,
+                columns: [{
+                    title: "ID"
+                }, {
+                    title: "Profile"
+                }, {
+                    title: "Data"
+                }, {
+                    title: "Time"
+                }, ]
+            });
+
+            // counter-up
+            $('.counter').counterUp({
+                delay: 10,
+                time: 600
+            });
+        });
+    </script>
+    <!-- END Java Script for this page -->
+
+</body>
+
+</html>
