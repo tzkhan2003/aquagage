@@ -15,8 +15,13 @@ import datetime
 
 main = Blueprint('main', __name__)
 
-
 @main.route("/")
+def indexmain():
+
+	return render_template('indexmain.html')
+
+
+@main.route("/app")
 def index():
 
 	return render_template('index.html')
