@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Water Home Maintenance & Service</title>
+    <title>Aquagage Home Maintenance & Service</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8" />
     <meta name="keywords" content="Water Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -25,6 +25,7 @@
     <link href="{{ url_for('static', filename='assets/css/css_slider.css') }}" type="text/css" rel="stylesheet" media="all">
     <!-- font-awesome icons -->
     <link href="{{ url_for('static', filename='assets/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- //Custom Theme files -->
     <!-- online-fonts -->
     <link href="//assets/fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
@@ -38,7 +39,7 @@
                 <div class="header-agile">
                     <h1>
                         <a class="navbar-brand editContent logo" href="index.html">
-                            <span class="fa fa-tint" aria-hidden="true"></span>Water
+                            <span class="fa fa-tint" aria-hidden="true"></span>Aquagage
                         </a>
                     </h1>
                 </div>
@@ -48,9 +49,9 @@
                         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
                         <ul class="menu">
                             <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('main.dashboard') }}">App</a></li>
                             <li class="nav-item"><a class="nav-link" href="#why">Why Us?</a></li>
-                            <li class="dropdown nav-item">
+                            <!--li class="dropdown nav-item">
                                 <a href="#" class="dropbtn nav-link">Dropdown</a>
                                 <div class="dropdown-content  show">
                                     <a href="#subscribe" class="nav-link">Subscribe</a>
@@ -58,7 +59,7 @@
                                     <a href="#stats" class="nav-link">stats</a>
                                     <a href="#services" class="nav-link">Resources</a>
                                 </div>
-                            </li>
+                            </li-->
                             <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
 
@@ -79,24 +80,28 @@
                 <li>
                     <div class="container">
                         <div class="w3ls_banner_txt ml-0 text-left">
-                            <h3 class="w3ls_pvt-title text-white">the best water right at your home</h3>
-                            <p class="text-white">100% clear water everyday.</p>
+                            <h3 class="w3ls_pvt-title text-white">"The inability to recognize the value of water is the main cause of water waste and misuse.
+"</h3>
+                            <p class="text-white">—The United Nations World Water Development Report (WWDR) 2021
+.</p>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="container">
                         <div class="w3ls_banner_txt">
-                            <h3 class="w3ls_pvt-title">the best water right at your home</h3>
-                            <p>100% clear water everyday.</p>
+                            <h3 class="w3ls_pvt-title text-white">"Waste, way to disaster."</h3>
+                            <p></p>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="container">
                         <div class="w3ls_banner_txt ml-0 text-left">
-                            <h3 class="w3ls_pvt-title text-white">the best water right at your home</h3>
-                            <p class="text-white">100% clear water everyday.</p>
+                            <h3 class="w3ls_pvt-title">"The inability to recognize the value of water is the main cause of water waste and misuse.
+"</h3>
+                            <p class="text-white">—The United Nations World Water Development Report (WWDR) 2021
+.</p>
                         </div>
                     </div>
                 </li>
@@ -119,20 +124,15 @@
                     <img src="{{ url_for('static', filename='assets/images/a2.jpg') }}" class="img-fluid img-thumbnail" alt="" />
                 </div>
                 <div class="offset-lg-1 col-lg-7 about-text-grid">
-                    <span class="sub-title">add your caption here</span>
+                    <!--span class="sub-title">add your caption here</span-->
                     <h4 class="w3pvt-title">what we do
                     </h4>
-                    <p class="mt-3">Donec mi nulla, auctor nec sem a, ornare auctor mi. Sed mi tortor,
-                        commodo a felis in, fringilla tincidunt nulla. Vestibulum
-                        volutpat non eros ut vulpuuctor nec sem a, ornare auctor mi. Sed mi tortor, commodo a felis
-                        in, fringilla tincidunt
-                        nulla. Vestibulum volutpat non eros uttate.</p>
-                    <p class="my-4">
-                        Vestibulum volutpat non eros ut vulputate. Nunc id risus accumsan Donec mi nulla, auctor
-                        nec sem a, ornare auctor mi. Sed
-                        mi tortor, commodo a felis in, fringilla tincidunt nulla.</p>
+                    <p style='font-size: 35px;' class="mt-3">Our main purpose is to provide a tool to value  & conserve water. Tracking and saving water using IoT for every user. Monitor & highlight water usage behavior. Suggest to train behaviour using Machine Learning.
+Potentially reuse greywater.
+</p>
+                    
 
-                    <a href="#portfolio" class="text-capitalize serv_link btn bg-theme scroll">view more</a>
+                    <!--a href="#portfolio" class="text-capitalize serv_link btn bg-theme scroll">view more</a-->
                 </div>
             </div>
         </div>
@@ -146,27 +146,27 @@
                     <img src="{{ url_for('static', filename='assets/images/a1.jpg') }}" class="img-fluid img-thumbnail" alt="" />
                 </div>
                 <div class="col-lg-7 about-text-grid">
-                    <span class="sub-title">add your caption here</span>
+                    <!--span class="sub-title">add your caption here</span-->
                     <h4 class="w3pvt-title">why us
                     </h4>
-                    <p class="mt-3">Donec mi nulla, auctor nec sem a, ornare auctor mi. Sed mi tortor,
-                        commodo a felis in, fringilla tincidunt nulla. Vestibulum
-                        volutpat non eros ut vulpuuctor nec sem a, ornare auctor mi. Sed mi tortor, commodo a felis
-                        in, fringilla tincidunt
-                        nulla. Vestibulum volutpat non eros uttate.</p>
-                    <p class="my-4">
+                    <p style='font-size: 35px;' class="mt-3">We intended to install  the system in every water access points.
+This system can be used in  existing infrastructure.
+But the system can work efficiently if implemented while planning.
+The system is optimum for urban households.
+</p>
+                    <!--p class="my-4">
                         Vestibulum volutpat non eros ut vulputate. Nunc id risus accumsan Donec mi nulla, auctor
                         nec sem a, ornare auctor mi. Sed
-                        mi tortor, commodo a felis in, fringilla tincidunt nulla.</p>
+                        mi tortor, commodo a felis in, fringilla tincidunt nulla.</p-->
 
-                    <a href="#portfolio" class="text-capitalize serv_link btn bg-theme scroll">view more</a>
+                    <!--a href="#portfolio" class="text-capitalize serv_link btn bg-theme scroll">view more</a-->
                 </div>
             </div>
         </div>
     </section>
     <!-- //why us -->
     <!-- subscribe -->
-    <div class="abt_bottom py-lg-5 bg-theme" id="subscribe">
+    <!--div class="abt_bottom py-lg-5 bg-theme" id="subscribe">
         <div class="container py-sm-4 py-3">
             <h4 class="abt-text text-capitalize text-center mb-0">the exclusive clean water provider</h4>
             <p class="text-center">Signup to our newsletter.</p>
@@ -183,10 +183,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div-->
     <!-- //subscribe -->
     <!-- portfolio -->
-    <section class="portfolio_wthree py-lg-5" id="portfolio">
+    <!--section class="portfolio_wthree py-lg-5" id="portfolio">
         <div class="container">
             <div class="text-center py-md-5 py-4">
                 <span class="sub-title">add your caption here</span>
@@ -223,10 +223,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section-->
     <!-- //portfolio -->
     <!-- team -->
-    <section class="team_wthree" id="team">
+    <!--section class="team_wthree" id="team">
         <div class="container py-lg-5 py-4 ">
             <div class="sec-main text-center">
                 <span class="sub-title">add your caption here</span>
@@ -341,10 +341,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section-->
     <!-- //team -->
     <!-- stats -->
-    <section class="w3_pvt_stats py-md-5 py-4" id="stats">
+    <!--section class="w3_pvt_stats py-md-5 py-4" id="stats">
         <div class="container">
             <div class="py-lg-5 w3-abbottom">
                 <span class="sub-title text-white">bottled drinking water</span>
@@ -374,10 +374,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section-->
     <!-- //stats -->
     <!-- services -->
-    <div class="w3_pvt-works pt-sm-5 pt-4" id="services">
+    <!--div class="w3_pvt-works pt-sm-5 pt-4" id="services">
         <div class="container py-lg-5">
             <div class="sec-main text-center pb-lg-4 pb-4">
                 <span class="sub-title">add your caption here</span>
@@ -431,10 +431,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div-->
     <!-- //services -->
     <!-- contact -->
-    <div class="contact-wthree pt-lg-5 pt-4" id="contact">
+    <!--div class="contact-wthree pt-lg-5 pt-4" id="contact">
         <div class="container pt-md-5 pt-4">
             <div class="text-center pb-4">
                 <span class="sub-title">add your caption here</span>
@@ -454,9 +454,9 @@
                 <div class="col-12 mb-4">
                     <div class="text-center">
                         <h6 class="sub-title">send us a note</h6>
-                    </div>
+                    </div-->
                     <!-- register form grid -->
-                    <div class="register-top1">
+                    <!--div class="register-top1">
                         <form action="#" method="post" class="register-wthree">
                             <div class="form-group">
                                 <div class="row">
@@ -509,14 +509,14 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div-->
                     <!--  //register form grid ends here -->
-                </div>
+                <!--/div>
             </div>
         </div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2798902705!2d-74.25986790365911!3d40.697670067823786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1536917325197"
             allowfullscreen></iframe>
-    </div>
+    </div-->
     <!-- //contact -->
     <footer class="bg-theme1">
         <div class="container">
@@ -549,7 +549,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 text-lg-right mt-lg-0 mt-4">
-                        <p class="text-white">© 2018 Water. All rights reserved | Design by
+                        <p class="text-white">© 2021 Water. All rights reserved | Design by
                             <a href="#"> Tanjim Zaman Khan</a>
                         </p>
                     </div>
